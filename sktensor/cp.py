@@ -156,7 +156,7 @@ def als(X, rank, **kwargs):
         P = ktensor(U, lmbda)
         if fit_method == 'full':
             normresidual = normX ** 2 + P.norm() ** 2 - 2 * P.innerprod(X)
-            fit = 1 - (normresidual / normX ** 2)
+            fit = 1 - (normresidual / normX ** 2) # Could also 1 - sqrt(nres)/norm
         else:
             fit = itr
         fitchange = abs(fitold - fit)
